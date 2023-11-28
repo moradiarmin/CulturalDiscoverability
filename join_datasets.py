@@ -11,7 +11,9 @@ FORMAT = ["tsv", "json"]
 LFM_ROOT_DIR = scratch_directory + "/data/LFM-2b/{0}.{1}.bz2"
 
 artists_lfm = pd.read_csv(LFM_ROOT_DIR.format("artists", "tsv"), sep="\t")
+print('Loaded LFM artists')
 artists_mb = pd.read_json(MB_ROOT_DIR.format("artist"), lines=True, chunksize=100000)
+print('Loaded MB artists')
 
 i = 0
 DST_FOLDER = f"{scratch_directory}/data/merged_artists.csv"

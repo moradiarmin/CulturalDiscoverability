@@ -164,3 +164,4 @@ cython_debug/
 LFM-2b/
 LFM-2b-Sample/
 data/
+logs/
