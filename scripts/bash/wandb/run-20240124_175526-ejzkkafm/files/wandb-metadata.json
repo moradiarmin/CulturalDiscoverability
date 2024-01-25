@@ -1,0 +1,205 @@
+{
+    "os": "Linux-4.15.0-213-generic-x86_64-with-glibc2.27",
+    "python": "3.9.18",
+    "heartbeatAt": "2024-01-24T22:55:26.981820",
+    "startedAt": "2024-01-24T22:55:26.474697",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--logs_path",
+        "/home/mila/a/armin.moradi/CulturalDiscoverability/results/model_outputs_4059207/",
+        "--dataset_path",
+        "/home/mila/a/armin.moradi/scratch/data/LFM_2b_seperated_final/"
+    ],
+    "state": "running",
+    "program": "/home/mila/a/armin.moradi/CulturalDiscoverability/scripts/py/train_baseline_NCF.py",
+    "codePathLocal": null,
+    "codePath": "scripts/py/train_baseline_NCF.py",
+    "git": {
+        "remote": "git@github.com:moradiarmin/CulturalDiscoverability.git",
+        "commit": "86ee043e50ba08c48c4b48257dae7cb7d86466f2"
+    },
+    "email": null,
+    "root": "/home/mila/a/armin.moradi/CulturalDiscoverability",
+    "host": "cn-f002.server.mila.quebec",
+    "username": "armin.moradi",
+    "executable": "/home/mila/a/armin.moradi/.conda/envs/crs_env/bin/python",
+    "cpu_count": 32,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 1.7819687500000003,
+        "min": 1500.0,
+        "max": 2500.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1.478,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.408,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.703,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.381,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.498,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.503,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.506,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.498,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.487,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 3.349,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 3.307,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.483,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 3.176,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.849,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.924,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.476,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.89,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.492,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.475,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.477,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.499,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.505,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.499,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.499,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 3.308,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.49,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.487,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.488,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.485,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.489,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 1.493,
+            "min": 1500.0,
+            "max": 2500.0
+        },
+        {
+            "current": 2.421,
+            "min": 1500.0,
+            "max": 2500.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 46.63345718383789,
+            "used": 15.559173583984375
+        }
+    },
+    "memory": {
+        "total": 251.83806991577148
+    }
+}

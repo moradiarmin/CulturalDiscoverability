@@ -1,0 +1,253 @@
+{
+    "os": "Linux-4.15.0-213-generic-x86_64-with-glibc2.27",
+    "python": "3.9.18",
+    "heartbeatAt": "2024-01-25T04:35:27.129445",
+    "startedAt": "2024-01-25T04:35:26.695644",
+    "docker": null,
+    "cuda": "10.2.89",
+    "args": [
+        "--logs_path",
+        "/home/mila/a/armin.moradi/CulturalDiscoverability/results/model_outputs_4060175/",
+        "--dataset_path",
+        "/home/mila/a/armin.moradi/scratch/data/LFM_2b_seperated_final/"
+    ],
+    "state": "running",
+    "program": "/home/mila/a/armin.moradi/CulturalDiscoverability/scripts/py/train_baseline_NCF.py",
+    "codePathLocal": null,
+    "codePath": "scripts/py/train_baseline_NCF.py",
+    "git": {
+        "remote": "git@github.com:moradiarmin/CulturalDiscoverability.git",
+        "commit": "86ee043e50ba08c48c4b48257dae7cb7d86466f2"
+    },
+    "email": null,
+    "root": "/home/mila/a/armin.moradi/CulturalDiscoverability",
+    "host": "cn-a004.server.mila.quebec",
+    "username": "armin.moradi",
+    "executable": "/home/mila/a/armin.moradi/.conda/envs/crs_env/bin/python",
+    "cpu_count": 40,
+    "cpu_count_logical": 40,
+    "cpu_freq": {
+        "current": 2787.984925,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2957.386,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2262.356,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2495.556,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2176.697,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3654.021,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3644.843,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2609.486,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2510.908,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2199.584,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2764.913,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2594.042,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2538.523,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2926.59,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2557.371,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2192.846,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2573.051,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2193.662,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2227.019,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3607.431,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3564.137,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3373.771,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3095.111,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3517.719,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3448.323,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3425.687,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3371.515,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2172.532,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2188.338,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3517.984,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3425.002,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2190.511,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2189.354,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.598,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2195.633,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3521.239,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2188.368,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2192.394,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2768.952,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2180.333,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2801.611,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1754.8885498046875,
+            "used": 77.06169128417969
+        }
+    },
+    "gpu": "Quadro RTX 8000",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "Quadro RTX 8000",
+            "memory_total": 48318382080
+        }
+    ],
+    "memory": {
+        "total": 377.56407928466797
+    }
+}
