@@ -1,0 +1,239 @@
+{
+    "os": "Linux-4.15.0-213-generic-x86_64-with-glibc2.27",
+    "python": "3.9.18",
+    "heartbeatAt": "2024-01-30T16:18:37.532296",
+    "startedAt": "2024-01-30T16:18:36.909140",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "git@github.com:moradiarmin/CulturalDiscoverability.git",
+        "commit": "e1ebf37051c1e7d53f66bf4d811fc13b76d6c7f9"
+    },
+    "email": null,
+    "root": "/home/mila/a/armin.moradi/CulturalDiscoverability",
+    "host": "cn-a003.server.mila.quebec",
+    "username": "armin.moradi",
+    "executable": "/home/mila/a/armin.moradi/.conda/envs/crs_env/bin/python",
+    "cpu_count": 40,
+    "cpu_count_logical": 40,
+    "cpu_freq": {
+        "current": 2837.355,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2927.929,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3306.757,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3220.668,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2871.303,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3276.597,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2914.549,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2951.503,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3138.884,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3165.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3036.198,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3079.235,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3289.557,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2536.915,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2195.825,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2217.963,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2187.849,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3200.684,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3112.983,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3253.647,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3244.346,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2675.078,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2700.827,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2830.589,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2797.271,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2845.104,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2866.372,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2819.78,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2589.693,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2858.644,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2729.06,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2620.489,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2732.599,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2627.368,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2834.592,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2719.601,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2826.732,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2289.059,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2339.829,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2867.302,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2795.431,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1754.8885498046875,
+            "used": 70.73949432373047
+        }
+    },
+    "memory": {
+        "total": 377.56408309936523
+    }
+}

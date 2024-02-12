@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=train_baseline_NCF
 #SBATCH --output=/home/mila/a/armin.moradi/CulturalDiscoverability/logs/SLURM/train_baseline_%j_output.txt
-#SBATCH --error=/home/mila/a/armin.moradi/CulturalDiscoverability/logs/job_error.txt
+#SBATCH --error=/home/mila/a/armin.moradi/CulturalDiscoverability/logs/JOB_ERRORS/job_errors_%j.txt
 #SBATCH --ntasks=1
 #SBATCH --time=2:10:00
 #SBATCH --mem=256G

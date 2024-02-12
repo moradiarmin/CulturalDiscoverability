@@ -6,9 +6,9 @@ _wandb:
     python_version: 3.9.18
     cli_version: 0.16.2
     framework: torch
-    is_jupyter_run: false
+    is_jupyter_run: true
     is_kaggle_kernel: false
-    start_time: 1706193473.455165
+    start_time: 1706631535.769166
     t:
       1:
       - 1
@@ -21,10 +21,10 @@ _wandb:
       - 53
       - 55
       3:
-      - 2
       - 23
       4: 3.9.18
       5: 0.16.2
       8:
+      - 1
       - 5
       13: linux-x86_64

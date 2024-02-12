@@ -166,3 +166,6 @@ LFM-2b-Sample/
 data/
 logs/
 results/
+scripts/bash/wandb/
+
+ProtoMF/
