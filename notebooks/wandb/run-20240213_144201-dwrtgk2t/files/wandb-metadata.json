@@ -1,0 +1,23 @@
+{
+    "os": "Linux-5.15.0-91-generic-x86_64-with-glibc2.35",
+    "python": "3.9.7",
+    "heartbeatAt": "2024-02-13T19:42:12.790900",
+    "startedAt": "2024-02-13T19:42:01.919744",
+    "docker": null,
+    "cpu_count": 64,
+    "cuda": null,
+    "args": [
+        "--f=/home/mila/a/armin.moradi/.local/share/jupyter/runtime/kernel-v2-18031207hOH0HL6vclg.json"
+    ],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "git@github.com:moradiarmin/CulturalDiscoverability.git",
+        "commit": "21bcd5ed46b1d694708e178e74caaf5f5869806c"
+    },
+    "email": null,
+    "root": "/home/mila/a/armin.moradi/CulturalDiscoverability",
+    "host": "cn-h002.server.mila.quebec",
+    "username": "armin.moradi",
+    "executable": "/home/mila/a/armin.moradi/.conda/envs/protomf/bin/python3.9"
+}

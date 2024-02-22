@@ -168,4 +168,5 @@ logs/
 results/
 scripts/bash/wandb/
 
-ProtoMF/
+ProtoMF/*
+ProfoMF

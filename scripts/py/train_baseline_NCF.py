@@ -20,10 +20,12 @@ parser.add_argument("--logs_path", type=str, help="Path to save outputs")
 parser.add_argument("--dataset_path", type=str, help="Path to read datasets")
 args = parser.parse_args()
 
+# DATASET_PATH = args.dataset_path
 # DATASET_PATH = '/home/mila/a/armin.moradi/scratch/data/LFM_2b_seperated_final'
+DATASET_PATH = '/home/mila/a/armin.moradi/ProtoMF/data/lfm2b-1mon'
+
 # LOGS_PATH = '/home/mila/a/armin.moradi/CulturalDiscoverability/results/model_outputs_testing_ipynb/'
 
-DATASET_PATH = args.dataset_path
 LOGS_PATH = args.logs_path
 ITEM_FRACTION = 1.0
 USER_FRACTION = 0.01
@@ -43,9 +45,9 @@ wandb.config.update(args)
 print('Initialized WandB')
 # load data
 
-interactions = pd.read_csv(os.path.join(DATASET_PATH, '10k_sampled_interactions.csv'))
-user_demographics = pd.read_csv(os.path.join(DATASET_PATH, '10k_sampled_users.csv'))
-item_demographics = pd.read_csv(os.path.join(DATASET_PATH, 'item_demographics.csv'))
+interactions = pd.read_csv(os.path.join(DATASET_PATH, 'listening_history_train.csv'))
+user_demographics = pd.read_csv(os.path.join(DATASET_PATH, 'user_ids.csv'))
+item_demographics = pd.read_csv(os.path.join(DATASET_PATH, 'item_ids.csv'))
 
 print('Loaded Data', 'interactions:', len(interactions), 'users', len(user_demographics), 'items', len(item_demographics))
 print('-'*50)
