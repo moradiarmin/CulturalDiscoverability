@@ -167,6 +167,3 @@ data/
 logs/
 results/
 scripts/bash/wandb/
-
-ProtoMF/*
-ProfoMF
