@@ -82,6 +82,7 @@ class Trainer:
 
         return optim
 
+        
     def run(self):
         """
         Runs the Training procedure

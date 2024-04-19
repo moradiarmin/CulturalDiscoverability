@@ -4,7 +4,7 @@ import os
 from confs.hyper_params import mf_hyper_params, anchor_hyper_params, user_proto_chose_original_hyper_params, \
     item_proto_chose_original_hyper_params
 
-from confs.double_tie_optim_hyper_params import proto_double_tie_chose_original_hyper_params
+from confs.double_tie_optim_hyper_params import proto_double_tie_chose_original_hyper_params # could change to general tuning
 
 from experiment_helper import start_hyper, start_multiple_hyper, start_training, start_testing
 from utilities.consts import SINGLE_SEED

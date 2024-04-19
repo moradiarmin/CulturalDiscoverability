@@ -49,8 +49,8 @@ class RecSys(nn.Module):
         else:
             raise ValueError(f'Recommender System Loss function <{self.rec_loss}> Not Implemented... Yet')
 
-        self.initialized = False
-
+        self.initialized = False        
+        
         print(f'Built RecSys module \n'
               f'- n_users: {self.n_users} \n'
               f'- n_items: {self.n_items} \n'
@@ -72,7 +72,7 @@ class RecSys(nn.Module):
 
         self.initialized = True
 
-    def loss_func(self, logits, labels):
+    def loss_func(self, logits, labels):                                                                                                                                                                                                          
         """
         Loss function of the Recommender System module. It takes into account eventual feature_extractor loss terms.
         NB. Any feature_extractor loss is pre-weighted.

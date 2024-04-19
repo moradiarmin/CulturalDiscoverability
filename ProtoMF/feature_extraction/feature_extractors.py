@@ -2,8 +2,10 @@ from abc import abstractmethod, ABC
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 from utilities.utils import general_weight_init
+from torch import Tensor
 
 
 class FeatureExtractor(nn.Module, ABC):
@@ -194,9 +196,9 @@ class PrototypeEmbedding(FeatureExtractor):
     """
 
     def __init__(self, n_objects: int, embedding_dim: int, n_prototypes: int = None, use_weight_matrix: bool = False,
-                 sim_proto_weight: float = 1., sim_batch_weight: float = 1.,
-                 reg_proto_type: str = 'soft', reg_batch_type: str = 'soft', cosine_type: str = 'shifted',
-                 max_norm: float = None):
+                 sim_proto_weight: float = 1., sim_proto_vectors_weight: float = 1.0, sim_batch_weight: float = 1.,
+                 reg_proto_type: str = 'soft', reg_batch_type: str = 'soft', reg_proto_vectors_type: str = 'ortho', cosine_type: str = 'shifted',
+                 max_norm: float = None, init_mode: str = 'random', init_points: Tensor = None, k: int = -1):
         """
         :param n_objects: number of objects in the system (users or items)
         :param embedding_dim: embedding dimension
@@ -208,7 +210,6 @@ class PrototypeEmbedding(FeatureExtractor):
         :param reg_batch_type: type of regularization applied batch-prototype similarity matrix on the batch. Possible values are ['max','soft']
         :param cosine_type: type of cosine similarity to apply. Possible values ['shifted','standard','shifted_and_div']
         :param max_norm: max norm of the l2 norm of the embeddings.
-
         """
 
         super(PrototypeEmbedding, self).__init__()
@@ -222,14 +223,35 @@ class PrototypeEmbedding(FeatureExtractor):
         self.reg_proto_type = reg_proto_type
         self.reg_batch_type = reg_batch_type
         self.cosine_type = cosine_type
-
+        
+        self.sim_proto_vectors_weight = sim_proto_vectors_weight
+        self.reg_proto_vectors_type = reg_proto_vectors_type
+        self.init_mode = init_mode
+        self.init_points = init_points
+        self.k = k # -1: all prototypes considered
+        
         self.embedding_ext = Embedding(n_objects, embedding_dim, max_norm)
 
-        if self.n_prototypes is None:
-            self.prototypes = nn.Parameter(torch.randn([self.embedding_dim, self.embedding_dim]))
-            self.n_prototypes = self.embedding_dim
-        else:
-            self.prototypes = nn.Parameter(torch.randn([self.n_prototypes, self.embedding_dim]))
+
+        def initialize_prototypes(self, mode='random', init_points=None):
+            if mode == 'random':
+                if self.n_prototypes is None:
+                    self.prototypes = nn.Parameter(torch.randn([self.embedding_dim, self.embedding_dim]))
+                    self.n_prototypes = self.embedding_dim
+                else:
+                    self.prototypes = nn.Parameter(torch.randn([self.n_prototypes, self.embedding_dim]))
+            elif mode == 'zero':
+                if self.n_prototypes is None:
+                    self.prototypes = nn.Parameter(torch.zeros([self.embedding_dim, self.embedding_dim]))
+                    self.n_prototypes = self.embedding_dim
+                else:
+                    self.prototypes = nn.Parameter(torch.zeros([self.n_prototypes, self.embedding_dim]))
+            elif mode=='on_init_points':
+                    assert self.n_prototypes is not None
+                    assert init_points.shape == (self.n_prototypes, self.embedding_dim) 
+                    self.prototypes = nn.Parameter(init_points)
+
+        initialize_prototypes(self, mode=self.init_mode, init_points=self.init_points)
 
         if self.use_weight_matrix:
             self.weight_matrix = nn.Linear(self.n_prototypes, self.embedding_dim, bias=False)
@@ -262,10 +284,14 @@ class PrototypeEmbedding(FeatureExtractor):
         else:
             raise ValueError(f'Regularization Type for Proto {self.reg_proto_type} not yet implemented')
 
-        self.reg_prototype_variance_func = lambda x: - x.var(dim=0).mean()
+        if self.reg_proto_vectors_type == 'ortho':
+            self.reg_proto_vectors = lambda x: self._prototype_orthonormality_regularizer(x)
+        else:
+            self.reg_proto_vectors = lambda x: 0 # zero for when there is no regularizer
         
         self._acc_r_proto = 0
         self._acc_r_batch = 0
+        self._acc_r_proto_vectors = 0
         self.name = "PrototypeEmbedding"
 
         print(f'Built PrototypeEmbedding model \n'
@@ -294,6 +320,19 @@ class PrototypeEmbedding(FeatureExtractor):
         entropy_q_k = - (q_k * torch.log(q_k)).sum()
         return - entropy_q_k
 
+    @staticmethod
+    def _prototype_orthonormality_regularizer(prototypes):
+        '''
+        force the prototypes to be orthonormal
+        '''
+        
+        normalized_prototypes = F.normalize(prototypes, dim=1) # check dim
+        dot_product = torch.mm(normalized_prototypes, normalized_prototypes.t())
+        dot_product = dot_product - torch.diag(dot_product.diag())
+        
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        return torch.norm(dot_product - torch.eye(dot_product.shape[0]).to(device), p='fro')        
+        
     def init_parameters(self):
         if self.use_weight_matrix:
             nn.init.xavier_normal_(self.weight_matrix.weight)
@@ -310,7 +349,15 @@ class PrototypeEmbedding(FeatureExtractor):
         o_embed = self.embedding_ext(o_idxs)  # [..., embedding_dim]
 
         # https://github.com/pytorch/pytorch/issues/48306
-        sim_mtx = self.cosine_sim_func(o_embed.unsqueeze(-2), self.prototypes)  # [..., n_prototypes]
+        sim_mtx = self.cosine_sim_func(o_embed.unsqueeze(-2), self.prototypes)  # [..., n_prototypes] # vector that shows item/user embedding relavance to all prototypes
+        
+        if self.k != -1:
+            assert self.k < sim_mtx.shape[-1]
+            
+            top_indices = torch.topk(torch.abs(sim_mtx), k=self.k, dim=-1)[1].to(sim_mtx.device)
+            mask = torch.zeros_like(sim_mtx, dtype=torch.bool).to(sim_mtx.device)
+            mask.scatter_(-1, top_indices, True)
+            sim_mtx = sim_mtx.masked_fill(~mask, 0)
 
         if self.use_weight_matrix:
             w = self.weight_matrix(sim_mtx)  # [...,embedding_dim]
@@ -322,14 +369,19 @@ class PrototypeEmbedding(FeatureExtractor):
 
         self._acc_r_batch += self.reg_batch_func(batch_proto)
         self._acc_r_proto += self.reg_proto_func(batch_proto)
-
+        self._acc_r_proto_vectors += self.reg_proto_vectors(self.prototypes)
+                
         return w
 
     def get_and_reset_loss(self) -> float:
         acc_r_proto, acc_r_batch = self._acc_r_proto, self._acc_r_batch
+        acc_r_proto_vectors = self._acc_r_proto_vectors
+        
         self._acc_r_proto = self._acc_r_batch = 0
-        return self.sim_proto_weight * acc_r_proto + self.sim_batch_weight * acc_r_batch
-
+        self._acc_r_proto_vectors = 0
+        
+        return self.sim_proto_weight * acc_r_proto + self.sim_batch_weight * acc_r_batch + self.sim_proto_vectors_weight * acc_r_proto_vectors
+        
 
 class ConcatenateFeatureExtractors(FeatureExtractor):
 

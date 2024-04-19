@@ -55,7 +55,7 @@ def NDCG_at_k_batch(logits: np.ndarray, k=10, sum=True):
 class Evaluator:
     """
     Helper class for the evaluation. When called with eval_batch, it updates the internal results. After the last batch,
-    get_results will return the aggregated information for all users.
+    get_results will return the aggregated information for all users. (UPDATE: it doesn't! it aggregates meanwhile)
     """
 
     def __init__(self, n_users: int, logger=None):

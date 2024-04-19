@@ -96,7 +96,7 @@ def start_hyper(conf: dict, model: str, dataset: str, seed: int = SINGLE_SEED):
 
     # Logger
     callback = WandbLoggerCallback(project=PROJECT_NAME, log_config=True, api_key=WANDB_API_KEY,
-                                   reinit=True, force=True, job_type='train/val', tags=[model, str(seed), dataset])
+                                   reinit=True, force=True, job_type='train/val', tags=[model, str(seed), dataset, 'modified'])
 
     # Hostname
     host_name = os.uname()[1][:2]

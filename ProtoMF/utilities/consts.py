@@ -4,7 +4,7 @@ SEED_LIST = [SINGLE_SEED, 9491758, 2931009]
 NUM_SAMPLES = 10  # How many hyperparameters samples will be taken into account
 DATA_PATH = '/home/mila/a/armin.moradi/CulturalDiscoverability/ProtoMF/data'  # Path pointing at the data folder
 GPU_PER_TRIAL = 1.0  # Ray Tune parameter,  how many gpus are allocated for a single trial experiment (https://docs.ray.io/en/releases-1.9.0/tune/api_docs/execution.html)
-CPU_PER_TRIAL = 2  # Ray Tune parameter, how many cpus are allocated for a single trial experiment
+CPU_PER_TRIAL = 4  # Ray Tune parameter, how many cpus are allocated for a single trial experiment
 # --- Training Constants --- #
 MAX_PATIENCE = 5  # How many epochs without an improvement must pass before stopping the experiment
 NUM_WORKERS = 2

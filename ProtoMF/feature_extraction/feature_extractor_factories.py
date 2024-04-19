@@ -81,7 +81,7 @@ class FeatureExtractorFactory:
             
             ft_ext_param['user_ft_ext_param']['ft_type'] = 'embedding_w'
             ft_ext_param['user_ft_ext_param']['out_dimension'] = item_n_prototypes
-            user_embed = FeatureExtractorFactory.create_model(ft_ext_param['user_ft_ext_param'], n_users, embedding_dim)
+            user_embed = FeatureExtractorFactory.create_model(ft_ext_param['user_ft_ext_param'], n_users, embedding_dim) # same thing but used for calculating embeddings
 
             # Building Item Proto branch
             ft_ext_param['item_ft_ext_param']['ft_type'] = 'prototypes'
@@ -145,7 +145,7 @@ class FeatureExtractorFactory:
             out_dimension = ft_ext_param['out_dimension'] if 'out_dimension' in ft_ext_param else None
             use_bias = ft_ext_param['use_bias'] if 'use_bias' in ft_ext_param else False
             model = EmbeddingW(n_objects, embedding_dim, max_norm, out_dimension, use_bias)
-        elif ft_type == 'prototypes':
+        elif ft_type == 'prototypes' or ft_type == 'prototypes_k':
             n_prototypes = ft_ext_param['n_prototypes'] if 'n_prototypes' in ft_ext_param else None
             max_norm = ft_ext_param['max_norm'] if 'max_norm' in ft_ext_param else None
             sim_proto_weight = ft_ext_param['sim_proto_weight'] if 'sim_proto_weight' in ft_ext_param else 1.
@@ -155,8 +155,15 @@ class FeatureExtractorFactory:
             cosine_type = ft_ext_param['cosine_type'] if 'cosine_type' in ft_ext_param else 'shifted'
             use_weight_matrix = ft_ext_param['use_weight_matrix'] if 'use_weight_matrix' in ft_ext_param else False
 
-            model = PrototypeEmbedding(n_objects, embedding_dim, n_prototypes, use_weight_matrix, sim_proto_weight,
-                                       sim_batch_weight, reg_proto_type, reg_batch_type, cosine_type, max_norm)
+            sim_proto_vectors_weight = ft_ext_param['sim_proto_vectors_weight'] if 'sim_proto_vectors_weight' in ft_ext_param else 1.
+            reg_proto_vectors_type = ft_ext_param['reg_proto_vectors_type'] if 'reg_proto_vectors_type' in ft_ext_param else 'None'
+            init_mode = ft_ext_param['initialize'] if 'initialize' in ft_ext_param else 'random'
+            init_points = None
+            
+            k = ft_ext_param['k'] if 'k' in ft_ext_param else -1
+
+            model = PrototypeEmbedding(n_objects=n_objects, embedding_dim=embedding_dim, n_prototypes=n_prototypes, use_weight_matrix=use_weight_matrix, sim_proto_weight=sim_proto_weight, sim_proto_vectors_weight=sim_proto_vectors_weight,
+                                       sim_batch_weight=sim_batch_weight, reg_proto_type=reg_proto_type, reg_batch_type=reg_batch_type, reg_proto_vectors_type=reg_proto_vectors_type, cosine_type=cosine_type, max_norm=max_norm, init_mode=init_mode, init_points=init_points, k=k)            
 
         elif ft_type == 'acf':
             n_anchors = ft_ext_param['n_anchors']

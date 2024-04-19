@@ -80,6 +80,7 @@ item_proto_chose_original_hyper_params = {
             "ft_type": "prototypes",
             'sim_proto_weight': tune.loguniform(1e-3, 10),
             'sim_batch_weight': tune.loguniform(1e-3, 10),
+            'sim_proto_vectors_weight': tune.loguniform(1e-3, 10),
             'use_weight_matrix': False,
             'n_prototypes': tune.randint(10, 100),
             'cosine_type': 'shifted',
@@ -99,22 +100,28 @@ proto_double_tie_chose_original_hyper_params = {
         'embedding_dim': tune.randint(10, 100),
         'item_ft_ext_param': {
             "ft_type": "prototypes_double_tie",
+            'inititalize': 'random',
             'sim_proto_weight': tune.loguniform(1e-3, 10),
             'sim_batch_weight': tune.loguniform(1e-3, 10),
+            'sim_proto_vectors_weight': tune.loguniform(1e-3, 10),
+
             'use_weight_matrix': False,
             'n_prototypes': tune.randint(10, 100),
             'cosine_type': 'shifted',
             'reg_proto_type': 'max',
+            'reg_proto_vectors_type': 'ortho',
             'reg_batch_type': 'max'
         },
         'user_ft_ext_param': {
             "ft_type": "prototypes_double_tie",
+            'inititalize': 'random',
             'sim_proto_weight': tune.loguniform(1e-3, 10),
             'sim_batch_weight': tune.loguniform(1e-3, 10),
             'use_weight_matrix': False,
             'n_prototypes': tune.randint(10, 100),
             'cosine_type': 'shifted',
             'reg_proto_type': 'max',
+            'reg_proto_vectors_type': 'ortho',
             'reg_batch_type': 'max'
         },
     },
