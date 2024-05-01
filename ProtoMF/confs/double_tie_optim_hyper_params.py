@@ -20,7 +20,6 @@ base_hyper_params = {
         'optim': 'adagrad',
         'wd': 0.0008
     },
-
 }
 
 proto_double_tie_chose_original_hyper_params = {
@@ -40,10 +39,9 @@ proto_double_tie_chose_original_hyper_params = {
         'sim_proto_weight': 1.22,
         'use_weight_matrix': False,
         'out_dimension': 89,
-        
-        'sim_proto_vectors_weight': 0.0, #tune.loguniform(1e-1, 10), # regu
+        'sim_proto_vectors_weight': tune.choice([0.0, 0.003, 0.01, 0.1, 1.0, 10.0]),
         'reg_proto_vectors_type': 'ortho', # regu
-        'k': -1, #tune.choice([3, 12, 25, 40, 60, -1]), # -1 = inclusive, # post-process
+        'k': tune.choice([3, 12, 25, 40, 60, -1]), # -1 = inclusive, # post-process
         'initialize': tune.choice(['random', 'zero']) # init ['random', 'zero', 'on_init_points']
         },
         
@@ -56,12 +54,12 @@ proto_double_tie_chose_original_hyper_params = {
         'sim_batch_weight': 0.04,
         'sim_proto_weight': 0.004,
         'use_weight_matrix': False,
-        'out_dimension': 89},
-    
-        'sim_proto_vectors_weight': 0.0, #tune.loguniform(1e-3, 10),
+        'out_dimension': 89,
+        'sim_proto_vectors_weight': tune.choice([0.0, 0.003, 0.01, 0.1, 1.0, 10.0]),
         'reg_proto_vectors_type': 'ortho',
-        'k': -1, #tune.choice([3, 12, 25, 40, 60, -1]), # -1 = inclusive, # post-process
+        'k': tune.choice([3, 12, 25, 40, 60, -1]), # -1 = inclusive, # post-process
         'initialize': tune.choice(['random', 'zero'])
+        }
     },
 }
 

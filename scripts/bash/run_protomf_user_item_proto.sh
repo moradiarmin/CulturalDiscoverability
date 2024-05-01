@@ -3,7 +3,7 @@
 #SBATCH --output=/home/mila/a/armin.moradi/CulturalDiscoverability/logs/SLURM/run_protomf_user_item_%j_output.txt
 #SBATCH --error=/home/mila/a/armin.moradi/CulturalDiscoverability/logs/JOB_ERRORS/run_protomf_user_item_%j.txt
 #SBATCH --ntasks=1
-#SBATCH --time=80:00:00
+#SBATCH --time=130:00:00
 #SBATCH --mem=64G
 #SBATCH --gres=gpu:1
 #SBATCH -c 4
